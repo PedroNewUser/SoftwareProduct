@@ -15,5 +15,8 @@ data class Usuario(
     var name: String,
 
     @Column(name = "email")
-    var email:String
+    var email:String,
+
+    @Column(name = "senha")
+    var senha:String
 )

@@ -15,12 +15,14 @@ class UserServiceImpl(
             Usuario(
                 name = userRequestDto.nome,
                 email = userRequestDto.email,
+                senha = userRequestDto.senha
                 )
             )
         return UserResponseDto(
             id = user.id,
             nome = user.name,
-            email = user.email
+            email = user.email,
+            senha = user.senha
         )
     }
 }
