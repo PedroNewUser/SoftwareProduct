@@ -1,4 +1,4 @@
-package com.projeto.atacadinho.domain.dto.request
+package com.projeto.atacadinho.request
 
 data class ProductRequestDto(
     val name: String,

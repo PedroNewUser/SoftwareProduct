@@ -1,21 +1,24 @@
 package com.projeto.atacadinho.services
 
-import com.projeto.atacadinho.domain.dto.request.ProductRequestDto
-import com.projeto.atacadinho.domain.dto.response.ProductResponseDto
-import com.projeto.atacadinho.infrastructure.repository.ProdutoInterface
+import com.projeto.atacadinho.request.ProductNameRequest
+import com.projeto.atacadinho.request.ProductRequestDto
+import com.projeto.atacadinho.domain.dto.ProductResponseDto
+import com.projeto.atacadinho.infrastructure.repository.ProdutoInterfaceRepository
 import com.projeto.atacadinho.model.Produto
 import org.springframework.stereotype.Service
 
 @Service
 class ProductServiceImpl(
 
-    val productService: ProdutoInterface
+    val productDto: ProductDto,
+
+    val productRepository: ProdutoInterfaceRepository
 
 ):ProductServiceInteface {
 
     //------------------------------------------------------------------------------------->
     override fun save(productRequestDto: ProductRequestDto): ProductResponseDto {
-        val produto = productService.save(
+        val produto = productRepository.save(
             Produto(
                 name = productRequestDto.name,
                 quantidade = productRequestDto.quantidade
@@ -31,12 +34,16 @@ class ProductServiceImpl(
 
 
     //------------------------------------------------------------------------------------->
-    override fun findByName(nome: String): ProductResponseDto {
-        val produto = productService.findByName(nome)
 
-        return ProductResponseDto(
-            name = produto.name,
-            quantidade = produto.quantidade
+    override fun productGetEveryThing(productNameRequest: ProductNameRequest): ProductResponseDto {
+        val productName = productRepository.findByName(productNameRequest.name)
+
+        val productNameReturn = productDto.fromModel(
+            productName.name,
+            productName.quantidade
         )
+
+        return  productNameReturn
+
     }
 }

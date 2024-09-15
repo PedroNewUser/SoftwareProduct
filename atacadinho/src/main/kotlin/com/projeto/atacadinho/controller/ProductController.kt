@@ -1,9 +1,12 @@
 package com.projeto.atacadinho.controller
 
-import com.projeto.atacadinho.domain.dto.request.ProductRequestDto
-import com.projeto.atacadinho.domain.dto.response.ProductResponseDto
+import com.projeto.atacadinho.request.ProductNameRequest
+import com.projeto.atacadinho.request.ProductRequestDto
+import com.projeto.atacadinho.domain.dto.ProductResponseDto
 import com.projeto.atacadinho.services.ProductServiceInteface
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 
 @RestController
@@ -19,9 +22,11 @@ class ProductController(
     }
 
     // PEGAR PRODUTO POR NOME
-    @GetMapping("/comprar/{name}")
-    fun findProduct(@PathVariable name: String):ProductResponseDto{
-        return productService.findByName(name)
+    @GetMapping("/pegar")
+    fun findProduct(@Valid @RequestBody productNameRequest: ProductNameRequest): ResponseEntity<Any> {
+        return ResponseEntity.ok(
+            productService.productGetEveryThing(productNameRequest)
+        )
     }
 
 //    ATUALIZAR PRODUTO--------------------------->

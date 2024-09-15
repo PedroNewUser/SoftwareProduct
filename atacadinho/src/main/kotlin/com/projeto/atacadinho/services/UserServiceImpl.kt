@@ -1,7 +1,7 @@
 package com.projeto.atacadinho.services
 
-import com.projeto.atacadinho.domain.dto.request.UserRequestDto
-import com.projeto.atacadinho.domain.dto.response.UserResponseDto
+import com.projeto.atacadinho.request.UserRequestDto
+import com.projeto.atacadinho.domain.dto.UserResponseDto
 import com.projeto.atacadinho.infrastructure.repository.UsuarioInterface
 import com.projeto.atacadinho.model.Usuario
 import org.springframework.stereotype.Service

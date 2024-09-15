@@ -1,4 +1,4 @@
-package com.projeto.atacadinho.domain.dto.response
+package com.projeto.atacadinho.domain.dto
 
 data class ProductResponseDto(
     val name: String,

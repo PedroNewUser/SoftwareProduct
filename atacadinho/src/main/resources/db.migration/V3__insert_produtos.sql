@@ -1,26 +1,51 @@
-INSERT INTO produto (id, nome, quantidade) VALUES
-                    (1, 'Arroz', 50)                 (25, 'Feijão', 50),
-                    (2, 'Macarrão', 50),             (26, 'Açúcar', 50),
-                    (3, 'Farinha de trigo', 50),     (27, 'Farinha de milho', 50),
-                    (4, 'Óleo de soja', 50),         (28, 'Azeite de oliva', 50),
-                    (5, 'Sal', 50),                  (29, 'Pimenta', 50),
-                    (6, 'Cebola', 50),               (30, 'Espinafre', 50),
-                    (7, 'Batata', 50),               (31, 'Pão de forma', 50),
-                    (8, 'Cenoura', 50),              (32, 'Leite', 50),
-                    (9, 'Tomate', 50),               (33, 'Iogurte', 50),
-                    (10, 'Alface', 50),              (34, 'Manteiga', 50),
-                    (11, 'Queijo mussarela', 50),    (35, 'Maionese', 50),
-                    (12, 'Presunto', 50),            (36, 'Mostarda', 50),
-                    (13, 'Ovo', 50),                 (37, 'Maionese', 50),
-                    (14, 'Frango (peito)', 50),      (38, 'Mostarda', 50),
-                    (15, 'Carne bovina (filé)', 50), (39, 'Requeijão', 50),
-                    (16, 'Carne suína (lombo)', 50), (40, 'Café', 50),
-                    (17, 'Peixe (salmão)', 50),      (41, 'Chá (mate)', 50),
-                    (18, 'Atum enlatado', 50),       (42, 'Achocolatado', 50),
-                    (19, 'Sardinha enlatada', 50),   (43, 'Suco de laranja', 50),
-                    (20, 'Milho enlatado', 50),      (44, 'Refrigerante', 50),
-                    (21, 'Ervilha enlatada', 50),    (45, 'Água miner', 50),
-                    (22, 'Feijão enlatado', 50),     (46, 'Sabão em pó', 50),
-                    (23, 'Molho de tomate', 50),     (47, 'Detergente', 50),
-                    (24, 'Ketchup', 50),             (48, 'Amaciante', 50),
-                    (49, 'Papel higiênico', 50),     (50, 'Pasta de dente', 50),
+INSERT INTO produto (name, quantidade) VALUES ('Arroz', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Feijão', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Açúcar', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Farinha de milho', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Azeite de oliva', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Pimenta', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Espinafre', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Pão de forma', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Leite', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Iogurte', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Manteiga', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Maionese', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Mostarda', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Coca-cola', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Pasta de dente', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Requeijão', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Café', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Macarrão', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Farinha de trigo', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Óleo de soja', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Sal', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Cebola', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Batata', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Cenoura', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Tomate', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Alface', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Queijo mussarela', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Presunto', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Ovo', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Ket-chup', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Requeijão', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Chá (mate)', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Achocolatado', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Suco de laranja', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Refrigerante', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Água miner', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Sabão em pó', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Detergente', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Amaciante', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Frango (peito)', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Carne bovina (filé)', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Carne suína (lombo)', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Peixe (salmão)', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Atum enlatado', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Sardinha enlatada', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Milho enlatado', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Ervilha enlatada', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Feijão enlatado', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Molho de tomate', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Ketchup', 50);
+INSERT INTO produto (name, quantidade) VALUES ('Papel higiênico', 50);

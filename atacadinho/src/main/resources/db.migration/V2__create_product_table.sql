@@ -1,7 +1,56 @@
 CREATE TABLE produto (
     id BIGINT AUTO_INCREMENT  PRIMARY KEY NOT NULL,
-    NAME VARCHAR(255) NOT NULL,
+    "NAME" VARCHAR(255) NOT NULL,
     QUANTIDADE BIGINT NOT NULL
 );
-
-
+INSERT INTO produto ("name", quantidade) VALUES ('Arroz', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Feijão', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Açúcar', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Farinha de milho', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Azeite de oliva', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Pimenta', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Espinafre', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Pão de forma', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Leite', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Iogurte', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Manteiga', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Maionese', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Mostarda', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Coca-cola', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Pasta de dente', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Requeijão', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Café', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Macarrão', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Farinha de trigo', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Óleo de soja', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Sal', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Cebola', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Batata', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Cenoura', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Tomate', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Alface', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Queijo mussarela', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Presunto', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Ovo', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Ket-chup', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Requeijão', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Chá (mate)', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Achocolatado', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Suco de laranja', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Refrigerante', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Água miner', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Sabão em pó', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Detergente', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Amaciante', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Frango (peito)', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Carne bovina (filé)', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Carne suína (lombo)', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Peixe (salmão)', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Atum enlatado', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Sardinha enlatada', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Milho enlatado', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Ervilha enlatada', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Feijão enlatado', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Molho de tomate', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Ketchup', 50);
+INSERT INTO produto ("name", quantidade) VALUES ('Papel higiênico', 50);

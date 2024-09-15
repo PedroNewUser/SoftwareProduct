@@ -1,7 +1,7 @@
 package com.projeto.atacadinho.controller
 
-import com.projeto.atacadinho.domain.dto.request.UserRequestDto
-import com.projeto.atacadinho.domain.dto.response.UserResponseDto
+import com.projeto.atacadinho.request.UserRequestDto
+import com.projeto.atacadinho.domain.dto.UserResponseDto
 import com.projeto.atacadinho.services.UserServiceInterface
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
