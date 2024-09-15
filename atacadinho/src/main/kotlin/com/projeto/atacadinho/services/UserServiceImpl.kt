@@ -13,14 +13,14 @@ class UserServiceImpl(
     override fun save(userRequestDto: UserRequestDto): UserResponseDto {
         val user = userService.save(
             Usuario(
-                name = userRequestDto.nome,
+                name = userRequestDto.name,
                 email = userRequestDto.email,
                 senha = userRequestDto.senha
                 )
             )
         return UserResponseDto(
             id = user.id,
-            nome = user.name,
+            name = user.name,
             email = user.email,
             senha = user.senha
         )

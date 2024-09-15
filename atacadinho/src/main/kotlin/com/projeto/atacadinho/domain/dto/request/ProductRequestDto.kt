@@ -1,7 +1,6 @@
 package com.projeto.atacadinho.domain.dto.request
 
-data class UserRequestDto(
+data class ProductRequestDto(
     val name: String,
-    val email: String,
-    val senha: String
+    val quantidade: Long
 )
