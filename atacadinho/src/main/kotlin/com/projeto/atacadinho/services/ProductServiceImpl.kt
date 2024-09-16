@@ -5,13 +5,17 @@ import com.projeto.atacadinho.request.ProductRequestDto
 import com.projeto.atacadinho.domain.dto.ProductResponseDto
 import com.projeto.atacadinho.infrastructure.repository.ProdutoInterfaceRepository
 import com.projeto.atacadinho.model.Produto
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Service
+
 
 @Service
 class ProductServiceImpl(
 
+    @Autowired
     val productDto: ProductDto,
-
+    @Autowired
     val productRepository: ProdutoInterfaceRepository
 
 ):ProductServiceInteface {
