@@ -5,18 +5,13 @@ import com.projeto.atacadinho.request.ProductRequestDto
 import com.projeto.atacadinho.domain.dto.ProductResponseDto
 import com.projeto.atacadinho.infrastructure.repository.ProdutoInterfaceRepository
 import com.projeto.atacadinho.model.Produto
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Service
 
 
 @Service
 class ProductServiceImpl(
-
-    @Autowired
-    val productDto: ProductDto,
-    @Autowired
-    val productRepository: ProdutoInterfaceRepository
+      //val productDto: ProductDto,
+      val productRepository: ProdutoInterfaceRepository
 
 ):ProductServiceInteface {
 
@@ -42,12 +37,15 @@ class ProductServiceImpl(
     override fun productGetEveryThing(productNameRequest: ProductNameRequest): ProductResponseDto {
         val productName = productRepository.findByName(productNameRequest.name)
 
-        val productNameReturn = productDto.fromModel(
+//        val productNameReturn = productDto.fromModel(
+//            productName.name,
+//            productName.quantidade
+//        )
+
+        return  ProductResponseDto(
             productName.name,
             productName.quantidade
         )
-
-        return  productNameReturn
 
     }
 }
