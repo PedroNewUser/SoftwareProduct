@@ -1,4 +1,4 @@
-package com.projeto.atacadinho.model
+package com.projeto.atacadinho.domain.model
 
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue

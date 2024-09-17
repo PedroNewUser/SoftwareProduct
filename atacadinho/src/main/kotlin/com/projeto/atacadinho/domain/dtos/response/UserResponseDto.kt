@@ -1,4 +1,4 @@
-package com.projeto.atacadinho.domain.dto
+package com.projeto.atacadinho.domain.dtos.response
 
 data class UserResponseDto(
     val id: Long?,

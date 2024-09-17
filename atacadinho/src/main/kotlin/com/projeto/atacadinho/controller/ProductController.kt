@@ -1,9 +1,9 @@
 package com.projeto.atacadinho.controller
 
-import com.projeto.atacadinho.request.ProductNameRequest
-import com.projeto.atacadinho.request.ProductRequestDto
-import com.projeto.atacadinho.domain.dto.ProductResponseDto
-import com.projeto.atacadinho.services.ProductServiceInteface
+import com.projeto.atacadinho.domain.dtos.request.ProductNameRequest
+import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
+import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
+import com.projeto.atacadinho.domain.services.ProductServiceInteface
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid

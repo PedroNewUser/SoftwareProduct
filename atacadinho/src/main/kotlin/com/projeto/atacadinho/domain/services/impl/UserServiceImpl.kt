@@ -1,9 +1,10 @@
-package com.projeto.atacadinho.services
+package com.projeto.atacadinho.domain.services.impl
 
-import com.projeto.atacadinho.request.UserRequestDto
-import com.projeto.atacadinho.domain.dto.UserResponseDto
+import com.projeto.atacadinho.domain.dtos.request.UserRequestDto
+import com.projeto.atacadinho.domain.dtos.response.UserResponseDto
 import com.projeto.atacadinho.infrastructure.repository.UsuarioInterface
-import com.projeto.atacadinho.model.Usuario
+import com.projeto.atacadinho.domain.model.Usuario
+import com.projeto.atacadinho.domain.services.UserServiceInterface
 import org.springframework.stereotype.Service
 
 @Service

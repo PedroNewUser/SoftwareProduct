@@ -1,6 +1,5 @@
-package com.projeto.atacadinho.services
+package com.projeto.atacadinho.domain.dtos.response
 
-import com.projeto.atacadinho.domain.dto.ProductResponseDto
 import org.springframework.stereotype.Component
 
 @Component

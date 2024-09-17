@@ -1,4 +1,4 @@
-package com.projeto.atacadinho.request
+package com.projeto.atacadinho.domain.dtos.request
 
 import javax.validation.constraints.NotBlank
 
