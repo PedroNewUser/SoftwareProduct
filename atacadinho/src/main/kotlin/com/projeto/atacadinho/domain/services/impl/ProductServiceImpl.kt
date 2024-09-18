@@ -42,4 +42,12 @@ class ProductServiceImpl(
         )
 
     }
+
+    //------------------------------------------------------------------------------------->
+//    override fun acharProdutos():  List<ProductResponseDto> {
+//        val produtos = productData.findAll()
+//        return for (produto in produtos){
+//
+//        }
+//    }
 }

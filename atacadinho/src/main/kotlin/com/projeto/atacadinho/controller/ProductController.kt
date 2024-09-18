@@ -29,6 +29,12 @@ class ProductController(
         )
     }
 
+//    // PEGAR TODOS PRODUTO
+//    @GetMapping("/todos")
+//    fun relatorio():List<ProductResponseDto>{
+//       / return productService.acharProdutos()
+//    }
+
 //    ATUALIZAR PRODUTO--------------------------->
 //    @PutMapping("/{id}")
 //    fun update(
@@ -38,12 +44,6 @@ class ProductController(
 //        return productService.update(id, productRequestDto)
 //    }
 
-//    // PEGAR TODOS PRODUTO
-//    @GetMapping("/relatorio")
-//    fun relatorio():List<TopicoPorCategoria>{
-//        return serviceTopico.relatorio()
-//    }
-//
 //    // DELETAR PRODUTO POR ID
 //    @DeleteMapping("/{id}")
 //    @CacheEvict(value = ["topicos"], allEntries = true)
