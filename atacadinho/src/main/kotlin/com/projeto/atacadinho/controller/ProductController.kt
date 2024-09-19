@@ -49,7 +49,7 @@ class ProductController(
 //    @DeleteMapping("/{id}")
 //    @CacheEvict(value = ["topicos"], allEntries = true)
 //    fun deletar(@PathVariable id:Long){
-//        serviceTopico.deletar(id)
+//        serviceTopico.deletar(id)a
 //    }
 
 }
