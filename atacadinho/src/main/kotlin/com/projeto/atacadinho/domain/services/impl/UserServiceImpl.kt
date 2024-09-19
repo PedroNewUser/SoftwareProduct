@@ -26,4 +26,17 @@ class UserServiceImpl(
             senha = user.senha
         )
     }
+
+    @Autowired
+    lateinit var userRepository: UserRepository
+
+    fun save(userRequestDto: UserRequestDto): User {
+        val user = User(
+            nome = userRequestDto.nome,
+            email = userRequestDto.email,
+            password = userRequestDto.password
+        )
+        return userRepository.save(user)
+    }
 }
+

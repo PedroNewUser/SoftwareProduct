@@ -12,11 +12,19 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/usuario")
 class UserController(
     val userService: UserServiceInterface
-) {
+) 
+
+    // @PostMapping("/cadastrar")
+    // fun save(@RequestBody userRequestDto: UserRequestDto) : UserResponseDto {
+    //     return userService.save(userRequestDto)
+    // }
+
+    @Autowired
+    lateinit var userService: UserService
 
     @PostMapping("/cadastrar")
-    fun save(@RequestBody userRequestDto: UserRequestDto) : UserResponseDto {
-        return userService.save(userRequestDto)
-    }
+    fun save(@RequestBody userRequestDto: UserRequestDto): String {
+        userService.save(userRequestDto)
+        return "Usuário cadastrado com sucesso!"
 }
 

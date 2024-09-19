@@ -7,13 +7,14 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./bucetao.js">
 </head>
 <body>
 
     <main>
         <div class="page">
             <div class="card">
-                <form method="post" action="">
+                <form method="post" action="/cadastrar">
                     <h2>Cadastro</h2>
                     <p>Cadastre os seus dados</p>
 
@@ -34,32 +35,5 @@
         </div>
     </main>
 
-    <script>
-        document.getElementById('cadastroForm').addEventListener('submit'), function(event) {
-            event.preventDefault();
-
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const userRequestDto = {
-                nome:nome, 
-                email:email, 
-                password:password};
-            
-            fetch('/cadastrar', {
-                method:'POST', Headers: {
-                    'content-type': 'aplication/json',}, 
-                    body:JSON.stringify(userRequestDto)})
-                    .then(Response=> Response.json())
-                    .then(data=>{
-                        console.log('Sucesso!',data);
-                        window.location.href='./index.html'})
-
-                        .catch((error) => {
-                            console.error('Error:', error);
-                        });
-
-        }
-    </script>
 </body>
 </html>
