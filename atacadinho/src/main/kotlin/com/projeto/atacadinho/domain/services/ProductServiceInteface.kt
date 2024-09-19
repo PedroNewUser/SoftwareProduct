@@ -1,8 +1,8 @@
 package com.projeto.atacadinho.domain.services
 
-import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
 import com.projeto.atacadinho.domain.dtos.request.ProductNameRequest
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
+import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
 import com.projeto.atacadinho.domain.model.Produto
 
 interface ProductServiceInteface {
@@ -12,6 +12,8 @@ interface ProductServiceInteface {
 
     fun productGetEveryThing(productNameRequest: ProductNameRequest): ProductResponseDto
 
-   // fun acharProdutos(): List<ProductResponseDto>
+//    fun relatorio(): MutableSet<ProductResponseDto>
+
+    // fun acharProdutos(): List<ProductResponseDto>
 
 }

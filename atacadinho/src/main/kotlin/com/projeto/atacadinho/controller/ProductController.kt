@@ -3,7 +3,9 @@ package com.projeto.atacadinho.controller
 import com.projeto.atacadinho.domain.dtos.request.ProductNameRequest
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
 import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
+import com.projeto.atacadinho.domain.model.Produto
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
+import com.projeto.atacadinho.domain.services.impl.ProductServiceImpl
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
@@ -12,7 +14,7 @@ import javax.validation.Valid
 @RestController
 @RequestMapping("/produto")
 class ProductController(
-    val productService: ProductServiceInteface
+    val productService: ProductServiceInteface,
 ) {
 
     // CADASTRAR PRODUTO
@@ -29,10 +31,9 @@ class ProductController(
         )
     }
 
-//    // PEGAR TODOS PRODUTO
-//    @GetMapping("/todos")
-//    fun relatorio():List<ProductResponseDto>{
-//       / return productService.acharProdutos()
+//    @GetMapping("/relatorio")
+//    fun relatorio():MutableSet<ProductResponseDto>{
+//        return productService.relatorio()
 //    }
 
 //    ATUALIZAR PRODUTO--------------------------->

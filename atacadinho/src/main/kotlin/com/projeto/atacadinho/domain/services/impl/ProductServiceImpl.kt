@@ -43,6 +43,10 @@ class ProductServiceImpl(
 
     }
 
+//    override fun relatorio():MutableSet<ProductResponseDto>{
+//        return productData.relatorio()
+//    }
+
     //------------------------------------------------------------------------------------->
 //    override fun acharProdutos():  List<ProductResponseDto> {
 //        val produtos = productData.findAll()
