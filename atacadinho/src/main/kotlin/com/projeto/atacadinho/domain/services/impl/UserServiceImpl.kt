@@ -2,16 +2,16 @@ package com.projeto.atacadinho.domain.services.impl
 
 import com.projeto.atacadinho.domain.dtos.request.UserRequestDto
 import com.projeto.atacadinho.domain.dtos.response.UserResponseDto
-import com.projeto.atacadinho.infrastructure.repository.UsuarioInterface
+import com.projeto.atacadinho.infrastructure.repository.UsuarioRepository
 import com.projeto.atacadinho.domain.model.Usuario
 import com.projeto.atacadinho.domain.services.UserServiceInterface
 import org.springframework.stereotype.Service
 
 @Service
 class UserServiceImpl(
-    val userService: UsuarioInterface): UserServiceInterface
+    val userService: UsuarioRepository): UserServiceInterface
 {
-    override fun save(userRequestDto: UserRequestDto): UserResponseDto {
+     override fun save(userRequestDto: UserRequestDto): UserResponseDto {
         val user = userService.save(
             Usuario(
                 name = userRequestDto.name,
@@ -27,16 +27,13 @@ class UserServiceImpl(
         )
     }
 
-    @Autowired
-    lateinit var userRepository: UserRepository
-
-    fun save(userRequestDto: UserRequestDto): User {
-        val user = User(
-            nome = userRequestDto.nome,
-            email = userRequestDto.email,
-            password = userRequestDto.password
-        )
-        return userRepository.save(user)
-    }
+//    fun save(userRequestDto: UserRequestDto): User {
+//        val user = User(
+//            nome = userRequestDto.nome,
+//            email = userRequestDto.email,
+//            password = userRequestDto.password
+//        )
+//        return userRepository.save(user)
+//    }
 }
 
