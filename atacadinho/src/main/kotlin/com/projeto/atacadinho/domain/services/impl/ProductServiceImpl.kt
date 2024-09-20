@@ -4,14 +4,14 @@ import com.projeto.atacadinho.domain.model.Produto
 import com.projeto.atacadinho.domain.dtos.request.ProductNameRequest
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
 import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
-import com.projeto.atacadinho.infrastructure.repository.ProdutoInterface
+import com.projeto.atacadinho.infrastructure.repository.ProdutoRepository
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
 
 import org.springframework.stereotype.Service
 
 @Service
 class ProductServiceImpl(
-    val productData: ProdutoInterface
+    val productData: ProdutoRepository
 ): ProductServiceInteface {
 
     //------------------------------------------------------------------------------------->
@@ -43,8 +43,8 @@ class ProductServiceImpl(
 
     }
 
-//    override fun relatorio():MutableSet<ProductResponseDto>{
-//        return productData.relatorio()
+//    override fun relatorio(pageable: Pageable):Page<Produto>{
+//        return productData.findAll(pageable)
 //    }
 
     //------------------------------------------------------------------------------------->
