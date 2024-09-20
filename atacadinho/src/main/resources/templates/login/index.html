@@ -34,5 +34,27 @@
         </div>
     </main>
 
+
+    <script>
+        const cadastrar = document.getElementById('cadastrarUser')
+
+        cadastrar.addEventListener('submit', evento => {
+            evento.preventDefault();
+
+            const formData = new FormData(cadastrar);
+            const data = Object.fromEntries(formData);
+
+            console.log(data);
+
+            fetch('url', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+            }).then(res => res.json()).then(data => console.log(data))
+        })
+
+    </script>
 </body>
 </html>
