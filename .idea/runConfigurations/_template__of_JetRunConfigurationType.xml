@@ -1,9 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="true" type="JetRunConfigurationType">
-    <module name="SoftwareProduct" />
-    <shortenClasspath name="NONE" />
-    <method v="2">
-      <option name="Make" enabled="true" />
-    </method>
-  </configuration>
-</component>
