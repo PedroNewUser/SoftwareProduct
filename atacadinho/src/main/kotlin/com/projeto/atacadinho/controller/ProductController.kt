@@ -12,7 +12,8 @@ import javax.validation.Valid
 @RestController
 @RequestMapping("/produto")
 class ProductController(
-    val productService: ProductServiceInteface
+    val productService: ProductServiceInteface,
+//    val produtoAchar: AcharProdutos
 ) {
 
     // CADASTRAR PRODUTO
@@ -29,6 +30,16 @@ class ProductController(
         )
     }
 
+//    @GetMapping("/pegarProduto")
+//    fun buscar() : ResponseEntity<List<Produto>> {
+//        return ResponseEntity.ok().body(produtoAchar.buscar())
+//    }
+
+//    @GetMapping("/relatorio")
+//    fun relatorio(): ResponseEntity<Page<Produto>> {
+//        return productService.relatorio()
+//    }
+
 //    ATUALIZAR PRODUTO--------------------------->
 //    @PutMapping("/{id}")
 //    fun update(
@@ -38,17 +49,11 @@ class ProductController(
 //        return productService.update(id, productRequestDto)
 //    }
 
-//    // PEGAR TODOS PRODUTO
-//    @GetMapping("/relatorio")
-//    fun relatorio():List<TopicoPorCategoria>{
-//        return serviceTopico.relatorio()
-//    }
-//
 //    // DELETAR PRODUTO POR ID
 //    @DeleteMapping("/{id}")
 //    @CacheEvict(value = ["topicos"], allEntries = true)
 //    fun deletar(@PathVariable id:Long){
-//        serviceTopico.deletar(id)
+//        serviceTopico.deletar(id)a
 //    }
 
 }

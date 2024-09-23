@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
-interface ProdutoInterface: CrudRepository<Produto, Long> {
+interface ProdutoRepository: CrudRepository<Produto, Long> {
 
     //@Query("SELECT name FROM Produto p WHERE p.name = :name")
     fun findByName(@Param("name") name: String): ProductResponseDto
