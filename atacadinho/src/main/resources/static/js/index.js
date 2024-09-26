@@ -1,5 +1,20 @@
 
 const url = "http://localhost:8090/usuario/cadastrar";
+
+// index.js
+async function testBackendConnection() {
+    const response = await fetch("http://localhost:8090/test");
+    if (response.ok) {
+        const message = await response.text();
+        console.log(message); // Deve exibir "Backend is connected!" no console
+    } else {
+        console.error("Erro ao conectar com o backend");
+    }
+}
+
+// Chame a função para testar a conexão
+testBackendConnection();
+
 async function cadastrar(){
     let name = document.getElementById('name').value
     let email = document.getElementById('email').value
@@ -27,6 +42,9 @@ async function cadastrar(){
         let resposta = await api.json();
         alert("Cadastro com sucesso !")
         window.location.href = "http://localhost:63342/SoftwareProduct/atacadinho/template/compra.html"
-        return
+        return;
+    }
+    else {
+        alert("Erro ao cadastrar usuário");
     }
 }
