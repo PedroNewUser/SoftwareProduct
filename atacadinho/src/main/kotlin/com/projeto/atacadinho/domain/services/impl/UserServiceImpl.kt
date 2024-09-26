@@ -26,14 +26,5 @@ class UserServiceImpl(
             senha = user.senha
         )
     }
-
-//    fun save(userRequestDto: UserRequestDto): User {
-//        val user = User(
-//            nome = userRequestDto.nome,
-//            email = userRequestDto.email,
-//            password = userRequestDto.password
-//        )
-//        return userRepository.save(user)
-//    }
 }
 
