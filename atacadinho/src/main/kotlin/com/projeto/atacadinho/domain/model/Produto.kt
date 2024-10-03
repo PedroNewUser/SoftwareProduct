@@ -16,7 +16,7 @@ data class Produto(
     @Column(name = "id", unique = true)
     val id: Long? = null,
 
-    @Column(name = "nome")
+    @Column(name = "name")
     var name: String,
 
     @Column(name = "quantidade")

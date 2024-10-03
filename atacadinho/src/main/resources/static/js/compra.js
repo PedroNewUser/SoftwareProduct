@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('http://localhost:8090/produto/save', {
+                const response = await fetch('http://localhost:8090/produto/comprar', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -23,8 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    const productResponseDto = await response.json();
-                    alert(`Produto ${productResponseDto.name} Compra com sucesso! Quantidade: ${productResponseDto.quantidade}`);
+                    alert(`Produto ${productRequestDto.name} Compra com sucesso! Quantidade: ${productRequestDto.quantidade}`);
                 } else {
                     alert('Erro ao cadastrar produto');
                 }
