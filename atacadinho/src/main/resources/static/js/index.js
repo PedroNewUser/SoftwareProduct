@@ -1,4 +1,3 @@
-
 const url = "http://localhost:8090/usuario/cadastrar";
 
 // index.js
@@ -41,7 +40,7 @@ async function cadastrar(){
     if(api.ok){
         let resposta = await api.json();
         alert("Cadastro com sucesso !")
-        window.location.href = "http://localhost:63342/SoftwareProduct/atacadinho/template/compra.html"
+        window.location.href = "http://localhost:63342/atacadinho/atacadinho/src/main/resources/template/compra.html?_ijt=dm5m0qkk3csoc25f9b8dk33ssr&_ij_reload=RELOAD_ON_SAVE"
         return;
     }
     else {

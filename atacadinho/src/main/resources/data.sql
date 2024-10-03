@@ -62,3 +62,10 @@ INSERT INTO produto (nome, quantidade) VALUES ('Feijão enlatado', 50);
 INSERT INTO produto (nome, quantidade) VALUES ('Molho de tomate', 50);
 INSERT INTO produto (nome, quantidade) VALUES ('Ketchup', 50);
 INSERT INTO produto (nome, quantidade) VALUES ('Papel higiênico', 50);
+
+
+CREATE TABLE produto_history (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    NOME VARCHAR(255) NOT NULL,
+    QUANTIDADE BIGINT NOT NULL
+);
