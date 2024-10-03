@@ -3,7 +3,6 @@ package com.projeto.atacadinho.domain.services.impl
 import com.projeto.atacadinho.domain.dtos.request.ProductNameRequest
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
 import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
-import com.projeto.atacadinho.domain.model.Produto
 import com.projeto.atacadinho.domain.model.ProdutoHistory
 import com.projeto.atacadinho.infrastructure.repository.ProdutoRepository
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
@@ -32,9 +31,6 @@ class ProductServiceImpl(
     }
     //------------------------------------------------------------------------------------->
 
-
-    //------------------------------------------------------------------------------------->
-
     override fun productGetEveryThing(productNameRequest: ProductNameRequest): ProductResponseDto {
         val productName = productData.findByName(productNameRequest.name)
 
@@ -47,13 +43,5 @@ class ProductServiceImpl(
 
 //    override fun relatorio(pageable: Pageable):Page<Produto>{
 //        return productData.findAll(pageable)
-//    }
-
-    //------------------------------------------------------------------------------------->
-//    override fun acharProdutos():  List<ProductResponseDto> {
-//        val produtos = productData.findAll()
-//        return for (produto in produtos){
-//
-//        }
 //    }
 }

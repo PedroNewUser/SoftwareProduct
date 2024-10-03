@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     const productResponseDto = await response.json();
-                    alert(`Produto ${productResponseDto.name} cadastrado com sucesso! Quantidade: ${productResponseDto.quantidade}`);
+                    alert(`Produto ${productResponseDto.name} Compra com sucesso! Quantidade: ${productResponseDto.quantidade}`);
                 } else {
                     alert('Erro ao cadastrar produto');
                 }
