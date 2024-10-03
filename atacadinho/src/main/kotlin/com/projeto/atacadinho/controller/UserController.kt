@@ -12,19 +12,17 @@ class UserController(
     val userService: UserServiceInterface
 ) {
 
-    @GetMapping("/welcome")
-    fun bemVindo():String{
-        return "OLA MATEUS"
-    }
-
     @PostMapping("/cadastrar")
     fun save(@RequestBody userRequestDto: UserRequestDto) : UserResponseDto {
         return userService.save(userRequestDto)
     }
 
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 //    @PostMapping("/cadastrar")
 //    fun save(@RequestBody userRequestDto: UserRequestDto): String {
 //        userService.save(userRequestDto)
-//        return "Usuário cadastrado com sucesso!"
-}
+//        return "Usuário cadastrado com sucesso!
 

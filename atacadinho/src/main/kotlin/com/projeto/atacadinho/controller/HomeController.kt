@@ -11,4 +11,10 @@ class HomeController {
     fun testConnection(): String {
         return "Backend is connected!"
     }
+
+    @GetMapping("/welcome")
+    fun bemVindo():String{
+        return "OLA MATEUS"
+    }
+
 }
