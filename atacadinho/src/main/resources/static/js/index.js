@@ -40,7 +40,7 @@ async function cadastrar(){
     if(api.ok){
         let resposta = await api.json();
         alert("Cadastro com sucesso !")
-        window.location.href = "http://localhost:63342/SoftwareProduct/atacadinho/template/compra.html?_ijt=jmi0aans5ffqc8tdb11npuql51&_ij_reload=RELOAD_ON_SAVE"
+        window.location.href = "http://localhost:63342/atacadinho/atacadinho/src/main/resources/template/compra.html?_ijt=d35hie4m2769sp00bvjqd34e9p&_ij_reload=RELOAD_ON_SAVE"
         return;
     }
     else {
