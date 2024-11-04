@@ -1,26 +1,36 @@
-import './ListarUsuario.css'
-import { useEffect, useState } from 'react'
+document.addEventListener('DOMContentLoaded', () => {
+    const buyButtons = document.querySelectorAll('.buy-button');
 
+    buyButtons.forEach(button => {
+        button.addEventListener('click', async (event) => {
+            const productCard = event.target.closest('.product-card');
+            const productName = productCard.querySelector('h2').innerText;
+            const quantityInput = productCard.querySelector('input[type="number"]');
+            const quantity = quantityInput.value;
 
-function ListarUsuario(){
-    const [users, setUsers] = useState([]);
+            const productRequestDto = {
+                name: productName,
+                quantidade: parseInt(quantity)
+            };
 
+            try {
+                const response = await fetch('http://localhost:8090/produto/comprar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(productRequestDto)
+                });
 
-    async function listUser() {
-        const api = await fetch("http://localhost:8090/produto/listproduct")
-        const resposta = await api.json()
-
-        if (api.ok) {
-            setUsers(resposta)
-        } else {
-            alert("Erro")
-            return false
-        }
-
-    }
-
-    useEffect(() => {
-        listUser()
-    }, []);
-
-export default ListarUsuario;}
+                if (response.ok) {
+                    alert(`Produto ${productRequestDto.name} Compra com sucesso! Quantidade: ${productRequestDto.quantidade}`);
+                } else {
+                    alert('Erro ao cadastrar produto');
+                }
+            } catch (error) {
+                console.error('Erro ao fazer requisição:', error);
+                alert(`Erro ao conectar com o servidor: ${error.message}`);
+            }
+        });
+    });
+});

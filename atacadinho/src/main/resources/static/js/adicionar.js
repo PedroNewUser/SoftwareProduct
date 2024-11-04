@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('http://localhost:8090/produto/comprar', {
+                const response = await fetch('http://localhost:8090/produto/adicionar', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
