@@ -5,9 +5,9 @@ import com.projeto.atacadinho.domain.dtos.response.UserResponseDto
 import com.projeto.atacadinho.domain.services.UserServiceInterface
 import org.springframework.web.bind.annotation.*
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin("http://localhost:63342")
 class UserController(
     val userService: UserServiceInterface
 ) {

@@ -7,7 +7,6 @@ import jakarta.persistence.Table
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Column
 
-
 @Table(name ="produto")
 @Entity
 data class Produto(
@@ -21,4 +20,6 @@ data class Produto(
 
     @Column(name = "quantidade")
     var quantidade: Long,
-)
+){
+    constructor(): this(null,"",0)
+}

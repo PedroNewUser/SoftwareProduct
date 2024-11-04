@@ -1,6 +1,9 @@
 package com.projeto.atacadinho.domain.services.impl
 
+import com.projeto.atacadinho.domain.dtos.request.ProductHistoryRequestDto
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
+import com.projeto.atacadinho.domain.dtos.response.ProductHistoryResponseDto
+import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
 import com.projeto.atacadinho.domain.model.ProdutoHistory
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
 import com.projeto.atacadinho.infrastructure.repository.ProdutoHistoryRepositoy
@@ -14,18 +17,28 @@ class ProductServiceImpl(
 ): ProductServiceInteface {
 
     override fun comprar(productRequestDto: ProductRequestDto) {
+        if (productRequestDto.name == productData.findByName(productRequestDto.name)) {
+            productData.deleteQuantidade(productRequestDto.name, productRequestDto.quantidade)
 
-       productHistory.save(
+        }
+    }
+
+    override fun carrinho(productHistoryRequestDto: ProductHistoryRequestDto){
+
+        productHistory.save(
             ProdutoHistory(
-                name = productRequestDto.name,
-                quantidade = productRequestDto.quantidade
+                name = productHistoryRequestDto.name,
+                quantidade = productHistoryRequestDto.quantidade
             )
         )
 
-        if (productRequestDto.name == productData.findByName(productRequestDto.name)) {
-            val itens = productData.deleteQuantidade(productRequestDto.name, productRequestDto.quantidade)
-
-        }
+//            val items = productHistory.findAll()
+//            return items.map {
+//                ProductHistoryResponseDto( :List<ProductHistoryResponseDto>
+//                    name = it.name,
+//                    quantidade = it.quantidade
+//                )
+//            }
     }
 }
 
