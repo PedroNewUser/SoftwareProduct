@@ -31,11 +31,23 @@ table{
     border-collapse: collapse;
     width: 80%;
     align-items: center;
+    
 }
 
 tr, th{
     border: 2px solid #ecc900;
     color: #000000;
     padding: 1em;
+
+}
+
+.buy-button {
+    padding: 10px 30px;
+    color: #FFF;
+    background-color: rgb(7, 169, 175);
+    border-radius: 15px;
+    border: 2px solid #000;
+    cursor: pointer;
+    transition: all linear 190ms;
 
 }
