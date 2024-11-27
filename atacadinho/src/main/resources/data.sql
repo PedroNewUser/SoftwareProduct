@@ -33,7 +33,7 @@ INSERT INTO produto (name, quantidade) VALUES ('Farinha', 1000);
 INSERT INTO produto (name, quantidade) VALUES ('Pimentão', 1000);
 INSERT INTO produto (name, quantidade) VALUES ('Carne bovina', 1000);
 INSERT INTO produto (name, quantidade) VALUES ('Carne suína', 1000);
-INSERT INTO produto (name, quantidade) VALUES ('Batata', 1000);
+INSERT INTO produto (name, quantidade) VALUES ('Cebola', 1000);
 INSERT INTO produto (name, quantidade) VALUES ('Leite', 1000);
 INSERT INTO produto (name, quantidade) VALUES ('Salame', 1000);
 INSERT INTO produto (name, quantidade) VALUES ('Bacon', 1000);

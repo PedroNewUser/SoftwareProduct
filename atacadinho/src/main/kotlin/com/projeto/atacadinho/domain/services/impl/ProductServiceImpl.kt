@@ -40,6 +40,14 @@ class ProductServiceImpl(
 //                )
 //            }
     }
+
+    override fun delete(id: Long) {
+        val produto = productData.findById(id).orElseThrow()
+
+        if (produto.name == productData.findByName(produto.name)) {
+            productData.deleteById(id)
+        }
+    }
 }
 
 //------------------------------------------------------------------------------------->

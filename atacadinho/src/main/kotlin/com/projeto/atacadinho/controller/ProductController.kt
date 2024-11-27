@@ -40,6 +40,12 @@ class ProductController(
             )
         }
     }
+
+    //Comprar Produto
+    @PostMapping("/delete/{id}")
+    fun deleteProduto(@PathVariable id: Long){
+        return productService.delete(id)
+    }
 }
 
 //----------------------------------------------------------------------------------------------------------------------
