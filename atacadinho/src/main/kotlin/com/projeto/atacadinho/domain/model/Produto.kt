@@ -20,6 +20,5 @@ data class Produto(
 
     @Column(name = "quantidade")
     var quantidade: Long,
-){
-    constructor(): this(null,"",0)
-}
+)
+
