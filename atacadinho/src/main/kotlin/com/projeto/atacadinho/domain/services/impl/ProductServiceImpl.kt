@@ -2,8 +2,6 @@ package com.projeto.atacadinho.domain.services.impl
 
 import com.projeto.atacadinho.domain.dtos.request.ProductHistoryRequestDto
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
-import com.projeto.atacadinho.domain.dtos.response.ProductHistoryResponseDto
-import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
 import com.projeto.atacadinho.domain.model.ProdutoHistory
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
 import com.projeto.atacadinho.infrastructure.repository.ProdutoHistoryRepositoy
