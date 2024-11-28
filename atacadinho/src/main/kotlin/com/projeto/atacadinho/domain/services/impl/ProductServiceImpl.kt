@@ -17,6 +17,9 @@ class ProductServiceImpl(
     override fun comprar(productRequestDto: ProductRequestDto) {
         if (productRequestDto.name == productData.findByName(productRequestDto.name)) {
             productData.deleteQuantidade(productRequestDto.name, productRequestDto.quantidade)
+            val produtofodase = productHistory.findByName(productRequestDto.name).orElseThrow()
+            productHistory.deleteById(produtofodase.id!!)
+
 
         }
     }
@@ -39,11 +42,12 @@ class ProductServiceImpl(
 //            }
     }
 
-    override fun delete(id: Long) {
-        val produto = productData.findById(id).orElseThrow()
+    override fun delete(productRequestDto: ProductRequestDto) {
+        val produto = productHistory.findByName(productRequestDto.name).orElseThrow()
 
-        if (produto.name == productData.findByName(produto.name)) {
-            productData.deleteById(id)
+        if (productRequestDto.name == produto.name) {
+            productData.deleteById(produto.id!!)
+
         }
     }
 }

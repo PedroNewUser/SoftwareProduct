@@ -42,9 +42,9 @@ class ProductController(
     }
 
     //Comprar Produto
-    @PostMapping("/delete/{id}")
-    fun deleteProduto(@PathVariable id: Long){
-        return productService.delete(id)
+    @PostMapping("/delete")
+    fun deleteProduto(@RequestBody productRequestDto: ProductRequestDto){
+        return productService.delete(productRequestDto)
     }
 }
 

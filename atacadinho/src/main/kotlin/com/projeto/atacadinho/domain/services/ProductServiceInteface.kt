@@ -10,7 +10,7 @@ interface ProductServiceInteface {
     fun comprar(productRequestDto: ProductRequestDto)
 
     fun carrinho(productHistoryRequestDto: ProductHistoryRequestDto)//List<ProductHistoryResponseDto>
-    fun delete(id: Long)
+    fun delete(productRequestDto: ProductRequestDto)
 
 }
 
