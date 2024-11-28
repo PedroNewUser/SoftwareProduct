@@ -40,9 +40,7 @@ class ProductServiceImpl(
     }
 
     override fun delete(productRequestDto: ProductRequestDto) {
-        val produto = productHistory.findByName(productRequestDto.name).orElseThrow()
-
-        if (productRequestDto.name == produto.name) {
+        if (productRequestDto.name == productHistory.findByName(productRequestDto.name)) {
             productHistory.deleteName(productRequestDto.name)
         }
     }

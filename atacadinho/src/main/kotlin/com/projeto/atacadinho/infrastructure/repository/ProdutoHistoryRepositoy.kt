@@ -14,7 +14,7 @@ import java.util.Optional
 @Repository
 interface ProdutoHistoryRepositoy: CrudRepository<ProdutoHistory, Long>{
     @Query("SELECT name FROM ProdutoHistory p WHERE p.name = :name")
-    fun findByName(@Param("name") name: String): Optional<ProdutoHistory>
+    fun findByName(@Param("name") name: String): String
 
     @Modifying
     @Transactional
