@@ -4,10 +4,12 @@ import com.projeto.atacadinho.domain.dtos.request.ProductHistoryRequestDto
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
 import com.projeto.atacadinho.domain.dtos.response.ProductHistoryResponseDto
 import com.projeto.atacadinho.domain.dtos.response.ProductResponseDto
+import com.projeto.atacadinho.domain.model.Produto
 import com.projeto.atacadinho.domain.model.ProdutoHistory
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
 import com.projeto.atacadinho.infrastructure.repository.ProdutoHistoryRepositoy
 import org.slf4j.LoggerFactory
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @CrossOrigin("*")
@@ -30,6 +32,8 @@ class ProductController(
         return productService.carrinho(productHistoryRequestDto)
     }
 
+
+    // Função abaixo de listar produtos para historico
     @GetMapping("/listproduct")
     fun listProduct():List<ProductHistoryResponseDto>{
         val items = produtoHistory.findAll()
@@ -41,10 +45,18 @@ class ProductController(
         }
     }
 
+
     //Comprar Produto
     @PostMapping("/delete")
     fun deleteProduto(@RequestBody productRequestDto: ProductRequestDto){
         return productService.delete(productRequestDto)
+    }
+
+    // Criar Produto
+    @PostMapping("/criar")
+    fun criarProduto(@RequestBody productRequestDto: ProductRequestDto): ResponseEntity<Produto> {
+        val novoProduto= productService.criarProduto(productRequestDto)
+        return ResponseEntity.ok(novoProduto)
     }
 }
 

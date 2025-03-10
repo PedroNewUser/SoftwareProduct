@@ -26,5 +26,27 @@ class UserServiceImpl(
             senha = user.senha
         )
     }
-}
 
+    override fun update(id: Long, userRequestDto: UserRequestDto): UserResponseDto {
+        // Busca o usuário existente pelo ID
+        val BuscarUsuario = userService.findById(id)
+            .orElseThrow { RuntimeException("Usuário não encontrado com o ID: $id") }
+
+        // Atualiza os campos do usuário existente com os novos dados
+        BuscarUsuario.name = userRequestDto.name
+        BuscarUsuario.email = userRequestDto.email
+        BuscarUsuario.senha = userRequestDto.senha
+
+        // Salva o usuário atualizado no banco de dados
+        val updatedUser = userService.save(BuscarUsuario)
+
+        // Retorna o usuário atualizado como UserResponseDto
+        return UserResponseDto(
+            id = updatedUser.id,
+            name = updatedUser.name,
+            email = updatedUser.email,
+            senha = updatedUser.senha
+        )
+    }
+
+}

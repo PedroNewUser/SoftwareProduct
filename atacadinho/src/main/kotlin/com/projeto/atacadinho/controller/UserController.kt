@@ -17,12 +17,9 @@ class UserController(
         return userService.save(userRequestDto)
     }
 
+    @PutMapping("/atualizar/{id}")
+    fun update(@PathVariable id: Long, @RequestBody userRequestDto: UserRequestDto): UserResponseDto {
+        return userService.update(id, userRequestDto)
+    }
+
 }
-
-//----------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------
-//    @PostMapping("/cadastrar")
-//    fun save(@RequestBody userRequestDto: UserRequestDto): String {
-//        userService.save(userRequestDto)
-//        return "Usuário cadastrado com sucesso!
-

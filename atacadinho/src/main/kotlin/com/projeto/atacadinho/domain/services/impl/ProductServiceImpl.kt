@@ -1,7 +1,7 @@
 package com.projeto.atacadinho.domain.services.impl
-
 import com.projeto.atacadinho.domain.dtos.request.ProductHistoryRequestDto
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
+import com.projeto.atacadinho.domain.model.Produto
 import com.projeto.atacadinho.domain.model.ProdutoHistory
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
 import com.projeto.atacadinho.infrastructure.repository.ProdutoHistoryRepositoy
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service
 class ProductServiceImpl(
     val productData: ProdutoRepository,
     val productHistory: ProdutoHistoryRepositoy
-): ProductServiceInteface {
+) : ProductServiceInteface {
 
     override fun comprar(productRequestDto: ProductRequestDto) {
         if (productRequestDto.name == productData.findByName(productRequestDto.name)) {
@@ -21,22 +21,13 @@ class ProductServiceImpl(
         }
     }
 
-    override fun carrinho(productHistoryRequestDto: ProductHistoryRequestDto){
-
+    override fun carrinho(productHistoryRequestDto: ProductHistoryRequestDto) {
         productHistory.save(
             ProdutoHistory(
                 name = productHistoryRequestDto.name,
-                quantidade = productHistoryRequestDto.quantidade
+                quantidade = productHistoryRequestDto.quantidade,
             )
         )
-
-//            val items = productHistory.findAll()
-//            return items.map {
-//                ProductHistoryResponseDto( :List<ProductHistoryResponseDto>
-//                    name = it.name,
-//                    quantidade = it.quantidade
-//                )
-//            }
     }
 
     override fun delete(productRequestDto: ProductRequestDto) {
@@ -44,34 +35,15 @@ class ProductServiceImpl(
             productHistory.deleteName(productRequestDto.name)
         }
     }
+
+    override fun criarProduto(productRequestDto: ProductRequestDto): Produto {
+        val novoProduto = Produto(
+            name = productRequestDto.name,
+            categoria = productRequestDto.categoria,
+            quantidade = productRequestDto.quantidade,
+            valor = productRequestDto.valor
+        )
+        return productData.save(novoProduto)
+    }
+
 }
-
-//------------------------------------------------------------------------------------->
-
-
-//    override fun save(productRequestDto: ProductRequestDto) {
-//        val produto = productHistory.save(
-//            ProdutoHistory(
-//                name = productRequestDto.name,
-//                quantidade = productRequestDto.quantidade
-//            )
-//        )
-//
-//        return ProductResponseDto(
-//            name = produto.name,
-//            quantidade = produto.quantidade
-//        )
-//    }
-
-//    override fun productGetEveryThing(productNameRequest: ProductNameRequest): ProductResponseDto {
-//        val productName = productData.findByName(productNameRequest.name)
-//
-//        return ProductResponseDto(
-//            name = productName.name,
-//            quantidade = productName.quantidade
-//        )
-//
-//    }
-//    override fun relatorio(pageable: Pageable):Page<Produto>{
-//        return productData.findAll(pageable)
-//    }

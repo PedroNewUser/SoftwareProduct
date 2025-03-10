@@ -1,6 +1,7 @@
 package com.projeto.atacadinho.domain.model
 
 import jakarta.persistence.*
+import java.math.BigDecimal
 
 @Table(name ="produto_history")
 @Entity
@@ -14,5 +15,6 @@ data class ProdutoHistory(
     var name: String,
 
     @Column(name = "quantidade")
-    var quantidade: Long
+    var quantidade: Long,
+
 )
