@@ -1,6 +1,7 @@
 package com.projeto.atacadinho.domain.services.impl
 
 import com.projeto.atacadinho.domain.dtos.request.UserRequestDto
+import com.projeto.atacadinho.domain.dtos.request.UserUpdateRequestDto
 import com.projeto.atacadinho.domain.dtos.response.UserResponseDto
 import com.projeto.atacadinho.infrastructure.repository.UsuarioRepository
 import com.projeto.atacadinho.domain.model.Usuario
@@ -9,8 +10,8 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserServiceImpl(
-    val userService: UsuarioRepository): UserServiceInterface
-{
+    val userService: UsuarioRepository
+): UserServiceInterface {
     override fun save(userRequestDto: UserRequestDto): UserResponseDto {
         val user = userService.save(
             Usuario(
@@ -27,13 +28,11 @@ class UserServiceImpl(
         )
     }
 
-    override fun update(id: Long, userRequestDto: UserRequestDto): UserResponseDto {
-        // Busca o usuário existente pelo ID
-        val BuscarUsuario = userService.findById(id)
-            .orElseThrow { RuntimeException("Usuário não encontrado com o ID: $id") }
+    override fun update(userRequestDto: UserUpdateRequestDto): UserResponseDto {
+        // Busca o último usuário cadastrado no banco de dados
+        val BuscarUsuario = userService.findAll().last()
 
         // Atualiza os campos do usuário existente com os novos dados
-        BuscarUsuario.name = userRequestDto.name
         BuscarUsuario.email = userRequestDto.email
         BuscarUsuario.senha = userRequestDto.senha
 
@@ -48,5 +47,4 @@ class UserServiceImpl(
             senha = updatedUser.senha
         )
     }
-
 }

@@ -1,6 +1,7 @@
 package com.projeto.atacadinho.controller
 
 import com.projeto.atacadinho.domain.dtos.request.UserRequestDto
+import com.projeto.atacadinho.domain.dtos.request.UserUpdateRequestDto
 import com.projeto.atacadinho.domain.dtos.response.UserResponseDto
 import com.projeto.atacadinho.domain.services.UserServiceInterface
 import org.springframework.web.bind.annotation.*
@@ -17,9 +18,8 @@ class UserController(
         return userService.save(userRequestDto)
     }
 
-    @PutMapping("/atualizar/{id}")
-    fun update(@PathVariable id: Long, @RequestBody userRequestDto: UserRequestDto): UserResponseDto {
-        return userService.update(id, userRequestDto)
+    @PutMapping("/atualizar/usuario")
+    fun updateUser(@RequestBody userUpdateRequestDto: UserUpdateRequestDto): UserResponseDto {
+        return userService.update(userUpdateRequestDto)
     }
-
 }
