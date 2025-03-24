@@ -1,5 +1,6 @@
 package com.projeto.atacadinho.domain.services.impl
 
+import com.projeto.atacadinho.domain.dtos.request.UserLoginRequestDto
 import com.projeto.atacadinho.domain.dtos.request.UserRequestDto
 import com.projeto.atacadinho.domain.dtos.request.UserUpdateRequestDto
 import com.projeto.atacadinho.domain.dtos.response.UserResponseDto
@@ -47,4 +48,18 @@ class UserServiceImpl(
             senha = updatedUser.senha
         )
     }
+
+    override fun login(userLoginRequestDto: UserLoginRequestDto): String {
+        val usuarioEmail = userService.findByEmail(userLoginRequestDto.email).orElseThrow()
+        val result = if (usuarioEmail.senha == userLoginRequestDto.senha){
+            "Login Efetuado"
+        } else {
+            "Senha incorreta"
+        }
+        if (result != "Login Efetuado"){
+            throw Exception("Senha incorreta")
+        }
+        return result
+    }
+
 }
