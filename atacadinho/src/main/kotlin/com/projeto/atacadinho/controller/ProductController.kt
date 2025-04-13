@@ -32,7 +32,6 @@ class ProductController(
         return productService.carrinho(productHistoryRequestDto)
     }
 
-
     // Função abaixo de listar produtos para historico
     @GetMapping("/listproduct")
     fun listProduct():List<ProductHistoryResponseDto>{
@@ -45,7 +44,6 @@ class ProductController(
         }
     }
 
-
     //Comprar Produto
     @PostMapping("/delete")
     fun deleteProduto(@RequestBody productRequestDto: ProductRequestDto){
@@ -53,26 +51,9 @@ class ProductController(
     }
 
     // Criar Produto
-    @PostMapping("/criar")
+    @PostMapping("/criarProduto")
     fun criarProduto(@RequestBody productRequestDto: ProductRequestDto): ResponseEntity<Produto> {
         val novoProduto= productService.criarProduto(productRequestDto)
         return ResponseEntity.ok(novoProduto)
     }
 }
-
-//----------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------
-//    @PostMapping("/save")
-//    fun save(@RequestBody productRequestDto: ProductRequestDto): ProductResponseDto {
-//        logger.info("Recebida requisição POST para /produto/save com body: $productRequestDto")
-//        return productService.save(productRequestDto)
-//    }
-
-// PEGAR PRODUTO POR NOME
-//    @GetMapping("/pegar")
-//    fun findProduct(@Valid @RequestBody productNameRequest: ProductNameRequest): ResponseEntity<Any> {
-//        logger.info("Recebida requisição GET para /produto/pegar com body: $productNameRequest")
-//        return ResponseEntity.ok(
-//            productService.productGetEveryThing(productNameRequest)
-//        )
-//    }

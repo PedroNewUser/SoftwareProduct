@@ -39,11 +39,10 @@ class ProductServiceImpl(
     override fun criarProduto(productRequestDto: ProductRequestDto): Produto {
         val novoProduto = Produto(
             name = productRequestDto.name,
-            categoria = productRequestDto.categoria,
             quantidade = productRequestDto.quantidade,
+            categoria = productRequestDto.categoria,
             valor = productRequestDto.valor
         )
         return productData.save(novoProduto)
     }
-
 }

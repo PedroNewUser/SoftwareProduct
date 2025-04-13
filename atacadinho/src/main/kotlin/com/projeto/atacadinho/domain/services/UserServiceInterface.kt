@@ -9,4 +9,5 @@ interface UserServiceInterface{
    fun save(userRequestDto: UserRequestDto): UserResponseDto
    fun update(userRequestDto: UserUpdateRequestDto): UserResponseDto
    fun login(userLoginRequestDto: UserLoginRequestDto): String
+   fun loginAdmin(userLoginRequestDto: UserLoginRequestDto): String
 }

@@ -28,4 +28,9 @@ class UserController(
     fun login(@RequestBody userLoginRequestDto: UserLoginRequestDto) : String {
         return userService.login(userLoginRequestDto)
     }
+
+    @PostMapping("/admin/login")
+    fun loginAdmin(@RequestBody userLoginRequestDto: UserLoginRequestDto) : String {
+        return userService.loginAdmin(userLoginRequestDto)
+    }
 }

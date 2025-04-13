@@ -7,11 +7,13 @@ import com.projeto.atacadinho.domain.dtos.response.UserResponseDto
 import com.projeto.atacadinho.infrastructure.repository.UsuarioRepository
 import com.projeto.atacadinho.domain.model.Usuario
 import com.projeto.atacadinho.domain.services.UserServiceInterface
+import com.projeto.atacadinho.infrastructure.repository.AdminRepository
 import org.springframework.stereotype.Service
 
 @Service
 class UserServiceImpl(
-    val userService: UsuarioRepository
+    val userService: UsuarioRepository,
+    val adminRepository: AdminRepository
 ): UserServiceInterface {
     override fun save(userRequestDto: UserRequestDto): UserResponseDto {
         val user = userService.save(
@@ -62,4 +64,16 @@ class UserServiceImpl(
         return result
     }
 
+    override fun loginAdmin(userLoginRequestDto: UserLoginRequestDto): String {
+        val usuarioEmail = adminRepository.findByEmail(userLoginRequestDto.email).orElseThrow()
+        val result = if (usuarioEmail.senha == userLoginRequestDto.senha){
+            "Login Efetuado"
+        } else {
+            "Senha incorreta"
+        }
+        if (result != "Login Efetuado"){
+            throw Exception("Senha incorreta")
+        }
+        return result
+    }
 }
