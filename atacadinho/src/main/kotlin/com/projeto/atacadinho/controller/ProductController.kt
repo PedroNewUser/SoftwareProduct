@@ -21,15 +21,22 @@ class ProductController(
 ) {
     private val logger = LoggerFactory.getLogger(ProductController::class.java)
 
-    //Comprar Produto
-    @PostMapping("/comprar")
-    fun comprarProduto(@RequestBody productRequestDto: ProductRequestDto){
-        return productService.comprar(productRequestDto)
+    // Criar Produto
+    @PostMapping("/criarProduto")
+    fun criarProduto(@RequestBody productRequestDto: ProductRequestDto): ResponseEntity<Produto> {
+        val novoProduto= productService.criarProduto(productRequestDto)
+        return ResponseEntity.ok(novoProduto)
     }
 
     @PostMapping("/adicionar")
     fun adicionarAoCarrinho(@RequestBody productHistoryRequestDto: ProductHistoryRequestDto){
         return productService.carrinho(productHistoryRequestDto)
+    }
+
+    //Comprar Produto
+    @PostMapping("/comprar")
+    fun comprarProduto(@RequestBody productRequestDto: ProductRequestDto){
+        return productService.comprar(productRequestDto)
     }
 
     // Função abaixo de listar produtos para historico
@@ -48,12 +55,5 @@ class ProductController(
     @PostMapping("/delete")
     fun deleteProduto(@RequestBody productRequestDto: ProductRequestDto){
         return productService.delete(productRequestDto)
-    }
-
-    // Criar Produto
-    @PostMapping("/criarProduto")
-    fun criarProduto(@RequestBody productRequestDto: ProductRequestDto): ResponseEntity<Produto> {
-        val novoProduto= productService.criarProduto(productRequestDto)
-        return ResponseEntity.ok(novoProduto)
     }
 }
