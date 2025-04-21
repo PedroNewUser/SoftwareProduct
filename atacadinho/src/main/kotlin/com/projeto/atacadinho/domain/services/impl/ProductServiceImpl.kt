@@ -15,7 +15,7 @@ class ProductServiceImpl(
 ) : ProductServiceInteface {
 
     override fun comprar(productRequestDto: ProductRequestDto) {
-        if (productRequestDto.name == productData.findByName(productRequestDto.name)) {
+        if (productRequestDto.name == productData.findProductByName(productRequestDto.name)) {
             productData.deleteQuantidade(productRequestDto.name, productRequestDto.quantidade)
             productHistory.deleteName(productRequestDto.name)
         }
@@ -44,5 +44,20 @@ class ProductServiceImpl(
             valor = productRequestDto.valor
         )
         return productData.save(novoProduto)
+    }
+
+    override fun atualizarProduto(productRequestDto: ProductRequestDto): Produto {
+        val produtoExistente = productData.findByName(productRequestDto.name)
+
+        if (produtoExistente.isPresent) {
+            val produtoAtualizado = produtoExistente.get().apply {
+                quantidade = productRequestDto.quantidade
+                categoria = productRequestDto.categoria
+                valor = productRequestDto.valor
+            }
+            return productData.save(produtoAtualizado)
+        } else {
+            throw Exception("Produto não encontrado")
+        }
     }
 }

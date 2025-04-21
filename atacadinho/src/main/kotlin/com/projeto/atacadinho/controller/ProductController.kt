@@ -28,6 +28,13 @@ class ProductController(
         return ResponseEntity.ok(novoProduto)
     }
 
+    // Atualizar Produto
+    @PostMapping("/atualizarProduto")
+    fun atualizarProduto(@RequestBody productRequestDto: ProductRequestDto): ResponseEntity<Produto> {
+        val novoProduto= productService.atualizarProduto(productRequestDto)
+        return ResponseEntity.ok(novoProduto)
+    }
+
     @PostMapping("/adicionar")
     fun adicionarAoCarrinho(@RequestBody productHistoryRequestDto: ProductHistoryRequestDto){
         return productService.carrinho(productHistoryRequestDto)

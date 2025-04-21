@@ -12,4 +12,5 @@ interface ProductServiceInteface {
     fun carrinho(productHistoryRequestDto: ProductHistoryRequestDto)//List<ProductHistoryResponseDto>
     fun delete(productRequestDto: ProductRequestDto)
     fun criarProduto (productRequestDto: ProductRequestDto): Produto
+    fun atualizarProduto (productRequestDto: ProductRequestDto): Produto
 }

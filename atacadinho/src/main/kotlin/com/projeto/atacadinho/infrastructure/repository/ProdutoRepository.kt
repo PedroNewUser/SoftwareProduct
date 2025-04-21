@@ -7,12 +7,15 @@ import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
+import java.util.Optional
 
 @Repository
 interface ProdutoRepository: CrudRepository<Produto, Long> {
 
+    fun findByName(@Param("name") name: String): Optional<Produto>
+
     @Query("SELECT name FROM Produto p WHERE p.name = :name")
-    fun findByName(@Param("name") name: String): String
+    fun findProductByName(@Param("name") name: String): String
 
     @Modifying
     @Transactional
