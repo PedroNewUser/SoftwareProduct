@@ -1,11 +1,10 @@
 package com.projeto.atacadinho.domain.model
 
 import jakarta.persistence.*
-import java.math.BigDecimal
 
-@Table(name ="produto_history")
+@Table(name ="carrinho")
 @Entity
-data class ProdutoHistory(
+data class Carrinho(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)

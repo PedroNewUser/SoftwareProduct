@@ -1,6 +1,6 @@
 package com.projeto.atacadinho.infrastructure.repository
 
-import com.projeto.atacadinho.domain.model.ProdutoHistory
+import com.projeto.atacadinho.domain.model.Carrinho
 import jakarta.transaction.Transactional
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository
 
 
 @Repository
-interface ProdutoHistoryRepositoy: CrudRepository<ProdutoHistory, Long>{
-    @Query("SELECT name FROM ProdutoHistory p WHERE p.name = :name")
+interface CarrinhoRepository: CrudRepository<Carrinho, Long>{
+    @Query("SELECT name FROM Carrinho p WHERE p.name = :name")
     fun findByName(@Param("name") name: String): String
 
     @Modifying
     @Transactional
-    @Query("DELETE FROM ProdutoHistory p WHERE p.name = :name")
+    @Query("DELETE FROM Carrinho p WHERE p.name = :name")
     fun deleteName(name: String)
 }

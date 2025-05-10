@@ -1,8 +1,6 @@
 package com.projeto.atacadinho.domain.dtos.response
 
-import java.util.function.LongFunction
-
-data class ProductHistoryResponseDto(
+data class CarrinhoResponseDto(
     val name: String,
     val quantidade: Long
 )

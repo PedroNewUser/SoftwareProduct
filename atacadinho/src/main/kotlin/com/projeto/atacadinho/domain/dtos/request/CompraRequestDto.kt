@@ -1,6 +1,10 @@
 package com.projeto.atacadinho.domain.dtos.request
 
-data class ProductHistoryRequestDto(
+import java.math.BigDecimal
+
+data class CompraRequestDto(
     val name: String,
     val quantidade: Long
 )
+
+
