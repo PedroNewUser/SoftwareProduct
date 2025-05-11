@@ -10,7 +10,6 @@ import com.projeto.atacadinho.infrastructure.repository.CarrinhoRepository
 import com.projeto.atacadinho.infrastructure.repository.ProdutoHistoricoRepository
 import com.projeto.atacadinho.infrastructure.repository.ProdutoRepository
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class ProductServiceImpl(
@@ -20,42 +19,33 @@ class ProductServiceImpl(
 
 ) : ProductServiceInteface {
 
-    override fun comprar(compraRequestDto: CompraRequestDto): List<ProdutoHistorico> {
-        val produtoExistente = productData.findByName(compraRequestDto.name)
+    override fun comprar(compratRequestDto: CompraRequestDto) {
+        val produtoExistente = productData.findByName(compratRequestDto.name)
         produtoHistoricoRepository.save(
             ProdutoHistorico(
-                name = compraRequestDto.name,
-                quantidade = compraRequestDto.quantidade,
+                name = compratRequestDto.name,
+                quantidade = compratRequestDto.quantidade,
                 categoria = produtoExistente.get().categoria,
                 valor = produtoExistente.get().valor
             )
         )
 
-        if (compraRequestDto.name == productData.findProductByName(compraRequestDto.name)) {
-            productData.deleteQuantidade(compraRequestDto.name, compraRequestDto.quantidade)
-            carinho.deleteName(compraRequestDto.name)
+        if (compratRequestDto.name == productData.findProductByName(compratRequestDto.name)) {
+            productData.deleteQuantidade(compratRequestDto.name, compratRequestDto.quantidade)
+            carinho.deleteName(compratRequestDto.name)
         }
-        return produtoHistoricoRepository.findAll()
-            .map {
-                ProdutoHistorico(
-                    name = it.name,
-                    quantidade = it.quantidade,
-                    categoria = it.categoria,
-                    valor = it.valor
-                )
-            }
     }
 
-    override fun carrinho(carrinhoRequestDto: CarrinhoRequestDto) {
+    override fun carrinhoAdicionar(carrinhoRequestDto: CarrinhoRequestDto) {
         carinho.save(
             Carrinho(
                 name = carrinhoRequestDto.name,
-                quantidade = carrinhoRequestDto.quantidade,
+                quantidade = carrinhoRequestDto.quantidade
             )
         )
     }
 
-    override fun delete(productRequestDto: ProductRequestDto) {
+    override fun delete(productRequestDto: CompraRequestDto) {
         if (productRequestDto.name == carinho.findByName(productRequestDto.name)) {
             carinho.deleteName(productRequestDto.name)
         }

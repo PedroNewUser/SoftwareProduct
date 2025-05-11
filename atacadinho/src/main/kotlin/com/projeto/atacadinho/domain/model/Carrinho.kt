@@ -14,6 +14,5 @@ data class Carrinho(
     var name: String,
 
     @Column(name = "quantidade")
-    var quantidade: Long,
-
+    var quantidade: Long
 )

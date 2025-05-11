@@ -8,9 +8,9 @@ import com.projeto.atacadinho.domain.model.ProdutoHistorico
 
 interface ProductServiceInteface {
 
-    fun comprar(compratRequestDto: CompraRequestDto): List<ProdutoHistorico>
-    fun carrinho(carrinhoRequestDto: CarrinhoRequestDto)//List<ProductHistoryResponseDto>
-    fun delete(productRequestDto: ProductRequestDto)
+    fun comprar(compratRequestDto: CompraRequestDto)
+    fun carrinhoAdicionar(carrinhoRequestDto: CarrinhoRequestDto)//List<ProductHistoryResponseDto>
+    fun delete(productRequestDto: CompraRequestDto)
     fun criarProduto (productRequestDto: ProductRequestDto): Produto
     fun atualizarProduto (productRequestDto: ProductRequestDto): Produto
 }

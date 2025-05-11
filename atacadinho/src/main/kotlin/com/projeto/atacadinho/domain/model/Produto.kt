@@ -17,7 +17,7 @@ data class Produto(
     val id: Long? = null,
 
     @Column (name = "categoria")
-    var categoria: String? = null,
+    var categoria: String,
 
     @Column(name = "name")
     var name: String,

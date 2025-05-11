@@ -4,10 +4,11 @@ import com.projeto.atacadinho.domain.dtos.request.CarrinhoRequestDto
 import com.projeto.atacadinho.domain.dtos.request.CompraRequestDto
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
 import com.projeto.atacadinho.domain.dtos.response.CarrinhoResponseDto
+import com.projeto.atacadinho.domain.dtos.response.ProdutoHistoricoResponseDto
 import com.projeto.atacadinho.domain.model.Produto
-import com.projeto.atacadinho.domain.model.ProdutoHistorico
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
 import com.projeto.atacadinho.infrastructure.repository.CarrinhoRepository
+import com.projeto.atacadinho.infrastructure.repository.ProdutoHistoricoRepository
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/produto")
 class ProductController(
     val productService: ProductServiceInteface,
-    val produtoHistory: CarrinhoRepository
+    val carrinho: CarrinhoRepository,
+    val produtoHistorico: ProdutoHistoricoRepository
+
 ) {
     private val logger = LoggerFactory.getLogger(ProductController::class.java)
 
@@ -37,19 +40,19 @@ class ProductController(
 
     @PostMapping("/adicionar")
     fun adicionarAoCarrinho(@RequestBody carrinhoRequestDto: CarrinhoRequestDto){
-        return productService.carrinho(carrinhoRequestDto)
+        return productService.carrinhoAdicionar(carrinhoRequestDto)
     }
 
     //Comprar Produto
     @PostMapping("/comprar")
-    fun comprarProduto(@RequestBody productRequestDto: CompraRequestDto): List<ProdutoHistorico>{
+    fun comprarProduto(@RequestBody productRequestDto: CompraRequestDto){
         return productService.comprar(productRequestDto)
     }
 
     // Função abaixo de listar produtos para historico
     @GetMapping("/listproduct")
     fun listProduct():List<CarrinhoResponseDto>{
-        val items = produtoHistory.findAll()
+        val items = carrinho.findAll()
         return items.map {
             CarrinhoResponseDto(
                 name = it.name,
@@ -58,9 +61,23 @@ class ProductController(
         }
     }
 
+    // Função abaixo de listar produtos para historico
+    @GetMapping("/listbestproducts")
+    fun listBestProducts():List<ProdutoHistoricoResponseDto>{
+        val items = produtoHistorico.findAll()
+        return items.map {
+            ProdutoHistoricoResponseDto(
+                name = it.name,
+                quantidade = it.quantidade,
+                categoria = it.categoria,
+                valor = it.valor,
+            )
+        }
+    }
+
     //Comprar Produto
     @PostMapping("/delete")
-    fun deleteProduto(@RequestBody productRequestDto: ProductRequestDto){
+    fun deleteProduto(@RequestBody productRequestDto: CompraRequestDto){
         return productService.delete(productRequestDto)
     }
 }

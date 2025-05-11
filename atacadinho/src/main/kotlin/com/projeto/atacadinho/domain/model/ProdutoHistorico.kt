@@ -15,7 +15,7 @@ data class ProdutoHistorico(
     var name: String,
 
     @Column (name = "categoria")
-    var categoria: String? = null,
+    var categoria: String,
 
     @Column(name = "quantidade")
     var quantidade: Long,
