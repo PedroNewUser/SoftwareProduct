@@ -9,6 +9,7 @@ import com.projeto.atacadinho.domain.model.Produto
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
 import com.projeto.atacadinho.infrastructure.repository.CarrinhoRepository
 import com.projeto.atacadinho.infrastructure.repository.ProdutoHistoricoRepository
+import com.projeto.atacadinho.infrastructure.repository.ProdutoRepository
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -19,7 +20,8 @@ import org.springframework.web.bind.annotation.*
 class ProductController(
     val productService: ProductServiceInteface,
     val carrinho: CarrinhoRepository,
-    val produtoHistorico: ProdutoHistoricoRepository
+    val produtoHistorico: ProdutoHistoricoRepository,
+    val produtoRepository: ProdutoRepository
 
 ) {
     private val logger = LoggerFactory.getLogger(ProductController::class.java)
@@ -79,5 +81,19 @@ class ProductController(
     @PostMapping("/delete")
     fun deleteProduto(@RequestBody productRequestDto: CompraRequestDto){
         return productService.delete(productRequestDto)
+    }
+
+    // Função abaixo de listar estoque
+    @GetMapping("/listarstoque")
+    fun listestoque():List<ProdutoHistoricoResponseDto>{
+        val items = produtoRepository.findAll()
+        return items.map {
+            ProdutoHistoricoResponseDto(
+                name = it.name,
+                quantidade = it.quantidade,
+                categoria = it.categoria,
+                valor = it.valor,
+            )
+        }
     }
 }
