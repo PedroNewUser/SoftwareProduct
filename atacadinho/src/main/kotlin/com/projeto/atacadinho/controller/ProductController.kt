@@ -5,11 +5,13 @@ import com.projeto.atacadinho.domain.dtos.request.CompraRequestDto
 import com.projeto.atacadinho.domain.dtos.request.ProductRequestDto
 import com.projeto.atacadinho.domain.dtos.response.CarrinhoResponseDto
 import com.projeto.atacadinho.domain.dtos.response.ProdutoHistoricoResponseDto
+import com.projeto.atacadinho.domain.dtos.response.UserResponseWithOutPassWordDto
 import com.projeto.atacadinho.domain.model.Produto
 import com.projeto.atacadinho.domain.services.ProductServiceInteface
 import com.projeto.atacadinho.infrastructure.repository.CarrinhoRepository
 import com.projeto.atacadinho.infrastructure.repository.ProdutoHistoricoRepository
 import com.projeto.atacadinho.infrastructure.repository.ProdutoRepository
+import com.projeto.atacadinho.infrastructure.repository.UsuarioRepository
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -22,7 +24,6 @@ class ProductController(
     val carrinho: CarrinhoRepository,
     val produtoHistorico: ProdutoHistoricoRepository,
     val produtoRepository: ProdutoRepository
-
 ) {
     private val logger = LoggerFactory.getLogger(ProductController::class.java)
 
@@ -96,4 +97,5 @@ class ProductController(
             )
         }
     }
+
 }
